@@ -11,8 +11,8 @@ const NAV_ITEMS = [
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Timeline', href: '#timeline' },
-  { label: 'Certificates', href: '#certificates' },
-  { label: 'Research', href: '#research' },
+  // { label: 'Certificates', href: '#certificates' },
+  // { label: 'Research', href: '#research' },
   { label: 'Contact', href: '#contact' },
 ];
 

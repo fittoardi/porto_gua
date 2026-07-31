@@ -146,7 +146,7 @@ export default function ContactSection() {
                   type="text"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="John Doe"
+                  placeholder="Namamu"
                   className="w-full border-2 border-black rounded-xl px-4 py-3 font-body text-sm bg-white focus:outline-none focus:shadow-brutal-sm transition-shadow"
                 />
               </div>
@@ -158,7 +158,7 @@ export default function ContactSection() {
                   type="email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="john@example.com"
+                  placeholder="@example.com"
                   className="w-full border-2 border-black rounded-xl px-4 py-3 font-body text-sm bg-white focus:outline-none focus:shadow-brutal-sm transition-shadow"
                 />
               </div>
@@ -169,7 +169,7 @@ export default function ContactSection() {
                 <textarea
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Tell me about your project..."
+                  placeholder="Can i Help U....."
                   rows={4}
                   className="w-full border-2 border-black rounded-xl px-4 py-3 font-body text-sm bg-white focus:outline-none focus:shadow-brutal-sm transition-shadow resize-none"
                 />

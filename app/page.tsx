@@ -10,8 +10,8 @@ import AboutSection from '@/components/portfolio/about-section';
 import SkillsSection from '@/components/portfolio/skills-section';
 import ProjectsSection from '@/components/portfolio/projects-section';
 import TimelineSection from '@/components/portfolio/timeline-section';
-import CertificatesSection from '@/components/portfolio/certificates-section';
-import ResearchSection from '@/components/portfolio/research-section';
+// import CertificatesSection from '@/components/portfolio/certificates-section';
+// import ResearchSection from '@/components/portfolio/research-section';
 import ContactSection from '@/components/portfolio/contact-section';
 import Footer from '@/components/portfolio/footer';
 import { Toaster } from '@/components/ui/sonner';
@@ -29,8 +29,8 @@ export default function Home() {
           <SkillsSection />
           <ProjectsSection />
           <TimelineSection />
-          <CertificatesSection />
-          <ResearchSection />
+          {/* <CertificatesSection />
+          <ResearchSection /> */}
           <ContactSection />
         </main>
         <Footer />
