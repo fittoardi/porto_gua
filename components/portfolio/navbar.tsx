@@ -3,22 +3,23 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
 import MagneticButton from './magnetic-button';
 
 const NAV_ITEMS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Timeline', href: '#timeline' },
-  // { label: 'Certificates', href: '#certificates' },
-  // { label: 'Research', href: '#research' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Skills', href: '/skills' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Timeline', href: '/timeline' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -26,10 +27,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    NAV_ITEMS.forEach((item) => router.prefetch(item.href));
+  }, [router]);
+
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: 'smooth' });
+    if (href === pathname) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    router.push(href);
   };
 
   return (
@@ -52,7 +60,7 @@ export default function Navbar() {
           >
             {/* Logo */}
             <button
-              onClick={() => handleNavClick('#home')}
+              onClick={() => handleNavClick('/')}
               className="flex items-center gap-2"
             >
               <div className="border-2 border-black bg-brand-yellow rounded-lg px-3 py-1.5">
@@ -87,7 +95,7 @@ export default function Navbar() {
             <div className="hidden lg:block">
               <MagneticButton strength={0.3}>
                 <button
-                  onClick={() => handleNavClick('#contact')}
+                  onClick={() => handleNavClick('/contact')}
                   className="brutal-btn-primary text-sm"
                 >
                   Let&apos;s Talk
@@ -127,7 +135,7 @@ export default function Navbar() {
                 </button>
               ))}
               <button
-                onClick={() => handleNavClick('#contact')}
+                onClick={() => handleNavClick('/contact')}
                 className="brutal-btn-primary mt-2"
               >
                 Let&apos;s Talk

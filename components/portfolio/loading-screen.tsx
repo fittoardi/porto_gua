@@ -2,20 +2,34 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { LOADING_MESSAGES } from '@/lib/portfolio-data';
 
 export default function LoadingScreen() {
+  const pathname = usePathname();
   const [progress, setProgress] = useState(0);
   const [messageIndex, setMessageIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
+    if (pathname !== '/') {
+      setIsComplete(true);
+      return;
+    }
+
+    const hasLoaded = sessionStorage.getItem('portfolio-loaded');
+    if (hasLoaded) {
+      setIsComplete(true);
+      return;
+    }
+
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressInterval);
-          setTimeout(() => setIsComplete(true), 600);
+          sessionStorage.setItem('portfolio-loaded', 'true');
+          setTimeout(() => setIsComplete(true), 300);
           return 100;
         }
         return prev + 2;
@@ -23,7 +37,7 @@ export default function LoadingScreen() {
     }, 40);
 
     return () => clearInterval(progressInterval);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const currentMessage = LOADING_MESSAGES[messageIndex];
@@ -44,7 +58,9 @@ export default function LoadingScreen() {
     }, 400);
 
     return () => clearTimeout(nextTimeout);
-  }, [displayedText, messageIndex]);
+  }, [displayedText, messageIndex, pathname]);
+
+  if (pathname !== '/') return null;
 
   return (
     <AnimatePresence>

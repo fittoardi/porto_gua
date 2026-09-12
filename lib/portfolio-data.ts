@@ -119,6 +119,48 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    id: 'cv-teknik-sentosa',
+    title: 'CV Teknik Sentosa',
+    category: 'Company Profile',
+    image: '/projects/cv-teknik-sentosa.png',
+    description:
+      'A professional company profile website for CV Teknik Sentosa Engineering.',
+    longDescription:
+      'A modern company profile website designed to present CV Teknik Sentosa Engineering, its services, company information, and professional identity to prospective clients.',
+    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    github: '#',
+    demo: 'https://company-profile-cv-teknik-sentosa.vercel.app/',
+    caseStudy: '#',
+    gradient: 'from-brand-blue to-brand-green',
+    accent: '#2563EB',
+    features: [
+      'Professional company profile presentation',
+      'Responsive layout for desktop and mobile',
+      'Clear service and business information',
+    ],
+  },
+  {
+    id: 'maze-runner-ultimate',
+    title: 'Maze Runner Ultimate',
+    category: 'Game Development',
+    image: '/projects/maze-runner-ultimate.png',
+    description:
+      'An interactive maze game focused on exploration, challenge, and responsive gameplay.',
+    longDescription:
+      'Maze Runner Ultimate is an interactive browser-based game where players navigate challenging mazes, avoid obstacles, and reach the finish point through an engaging visual experience.',
+    techStack: ['Next.js', 'React', 'TypeScript', 'Game UI'],
+    github: '#',
+    demo: 'https://maze-runner-ultimate.vercel.app/',
+    caseStudy: '#',
+    gradient: 'from-brand-pink to-brand-yellow',
+    accent: '#FF4D6D',
+    features: [
+      'Interactive maze gameplay',
+      'Responsive controls and layout',
+      'Browser-based experience with no installation required',
+    ],
+  },
+  {
     id: 'village-info-system',
     title: 'Village Information System',
     category: 'Web Development',

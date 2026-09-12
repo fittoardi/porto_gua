@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Download, ArrowRight, Mail } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { PROFILE } from '@/lib/portfolio-data';
 import MagneticButton from './magnetic-button';
 import FloatingShapes from './floating-shapes';
@@ -13,9 +14,7 @@ const DeveloperRoom = dynamic(() => import('./developer-room'), {
 });
 
 export default function HeroSection() {
-  const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const router = useRouter();
 
   return (
     <section
@@ -127,7 +126,7 @@ export default function HeroSection() {
             >
               <MagneticButton strength={0.4}>
                 <button
-                  onClick={() => scrollTo('#projects')}
+                  onClick={() => router.push('/projects')}
                   className="brutal-btn-primary"
                 >
                   Explore Projects
@@ -148,7 +147,7 @@ export default function HeroSection() {
               </MagneticButton>
               <MagneticButton strength={0.4}>
                 <button
-                  onClick={() => scrollTo('#contact')}
+                  onClick={() => router.push('/contact')}
                   className="brutal-btn-accent"
                 >
                   <Mail size={18} />
