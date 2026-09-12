@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'A modern company profile website designed to present CV Teknik Sentosa Engineering, its services, company information, and professional identity to prospective clients.',
     techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    github: '#',
+    github: 'https://github.com/fittoardi/Company-Profile-Cv-Teknik-Sentosa',
     demo: 'https://company-profile-cv-teknik-sentosa.vercel.app/',
     caseStudy: '#',
     gradient: 'from-brand-blue to-brand-green',
@@ -149,7 +149,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'Maze Runner Ultimate is an interactive browser-based game where players navigate challenging mazes, avoid obstacles, and reach the finish point through an engaging visual experience.',
     techStack: ['Next.js', 'React', 'TypeScript', 'Game UI'],
-    github: '#',
+    github: 'https://github.com/fittoardi/Maze-Runner-Ultimate',
     demo: 'https://maze-runner-ultimate.vercel.app/',
     caseStudy: '#',
     gradient: 'from-brand-pink to-brand-yellow',
@@ -158,6 +158,27 @@ export const PROJECTS: Project[] = [
       'Interactive maze gameplay',
       'Responsive controls and layout',
       'Browser-based experience with no installation required',
+    ],
+  },
+  {
+    id: 'System Information School Mithos',
+    title: '(mi thoriqussalam) Mithos School Information System',
+    category: 'Web Development',
+    image: '/projects/mithos.png',
+    description:
+      'A comprehensive school information system for managing student data, academic records, and administrative tasks.',
+    longDescription:
+      'A comprehensive school information system built with Laravel and MySQL. It allows administrators to manage student data, academic records, and administrative tasks efficiently. The platform features a responsive design and provides a user-friendly interface for teachers, students, and parents.',
+    techStack: ['php native', 'MySQL', 'Bootstrap', 'REST API'],
+    github: '#',
+    demo: 'https://mithos.sch.id/ ',
+    caseStudy: '#',
+    gradient: 'from-brand-pink to-brand-yellow',
+    accent: '#FF4D6D',
+    features: [
+      'CRUD operations for student data',
+      'Academic record management',
+      'User-friendly interface for teachers, students, and parents',
     ],
   },
   {
@@ -170,7 +191,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'A comprehensive village information system built with Laravel and MySQL. It allows local administrators to manage village data, services, and community announcements. The platform features a responsive design using Bootstrap and provides REST API endpoints for integration with mobile apps.',
     techStack: ['PHP', 'Laravel', 'MySQL', 'Bootstrap', 'REST API'],
-    github: '#',
+    github: 'https://github.com/choco-mette/KKN-TEMATIK-ASIK',
     demo: '#',
     caseStudy: '#',
     gradient: 'from-brand-green to-brand-yellow',
@@ -181,28 +202,28 @@ export const PROJECTS: Project[] = [
       'Responsive design for mobile and desktop',
     ],
   },
-  {
-    id: 'macro-expression',
-    title: 'Macro Expression Recognition',
-    category: 'Deep Learning',
-    image: "/projects/village-system.png",
-    description:
-      'Deep learning model to classify subtle facial expressions from video.',
-    longDescription:
-      'A deep learning pipeline that detects and classifies macro facial expressions from video streams. Uses a CNN+LSTM architecture trained on the CK+ dataset with temporal feature extraction for frame-by-frame analysis.',
-    techStack: ['Python', 'PyTorch', 'OpenCV', 'MediaPipe', 'NumPy'],
-    github: '#',
-    demo: '#',
-    caseStudy: '#',
-    gradient: 'from-brand-blue to-brand-green',
-    accent: '#2563EB',
-    features: [
-      'CNN + LSTM temporal architecture',
-      'MediaPipe facial landmark extraction',
-      '7 expression categories',
-      'Real-time webcam inference',
-    ],
-  },
+  // {
+  //   id: 'macro-expression',
+  //   title: 'Macro Expression Recognition',
+  //   category: 'Deep Learning',
+  //   image: "/projects/village-system.png",
+  //   description:
+  //     'Deep learning model to classify subtle facial expressions from video.',
+  //   longDescription:
+  //     'A deep learning pipeline that detects and classifies macro facial expressions from video streams. Uses a CNN+LSTM architecture trained on the CK+ dataset with temporal feature extraction for frame-by-frame analysis.',
+  //   techStack: ['Python', 'PyTorch', 'OpenCV', 'MediaPipe', 'NumPy'],
+  //   github: '#',
+  //   demo: '#',
+  //   caseStudy: '',
+  //   gradient: 'from-brand-blue to-brand-green',
+  //   accent: '#2563EB',
+  //   features: [
+  //     'CNN + LSTM temporal architecture',
+  //     'MediaPipe facial landmark extraction',
+  //     '7 expression categories',
+  //     'Real-time webcam inference',
+  //   ],
+  // },
   {
     id: 'E-commerce-platform',
     title: 'Greens Harvest',
@@ -229,7 +250,7 @@ export const PROJECTS: Project[] = [
     id: 'hand-gesture-blur',
     title: 'Hand Gesture Blur Camera',
     category: 'Computer Vision',
-    image: "/projects/hand-gesture-blur.png",
+    image: "/projects/hand-blur.png",
     description:
       'Privacy camera that blurs faces on hand gesture using MediaPipe.',
     longDescription:
@@ -257,8 +278,8 @@ export const PROJECTS: Project[] = [
   //   longDescription:
   //     'A comprehensive data analytics platform that ingests, cleans, and visualizes datasets with interactive dashboards. Includes automated ML insights and predictive modeling capabilities.',
   //   techStack: ['Python', 'Pandas', 'Scikit-learn', 'Plotly', 'Streamlit'],
-  //   github: 'https://github.com/fittoardiansyah/python-analytics',
-  //   demo: '#',
+  //   github: '',
+  //   demo: 'https://chatbot.it-trust.co.id/',
   //   caseStudy: '#',
   //   gradient: 'from-brand-yellow to-brand-blue',
   //   accent: '#FFD60A',
@@ -299,9 +320,9 @@ export const TIMELINE: TimelineEvent[] = [
   {
     year: '2023',
     level: 'Level 03',
-    title: 'Mobile Development',
+    title: 'RestApi',
     description:
-      'Built Flutter apps with backend integration. Published apps to Play Store.',
+      'Explored advanced backend systems, database optimization, and scalable architecture.',
     color: 'bg-brand-blue',
   },
   {
@@ -353,26 +374,6 @@ export const CERTIFICATES: Certificate[] = [
     link: '#',
     color: 'bg-brand-blue',
   },
-  {
-    id: 'flutter-pro',
-    title: 'Flutter & Dart Professional',
-    issuer: 'Google',
-    date: '2023',
-    description:
-      'Advanced Flutter development certification covering state management and production patterns.',
-    link: '#',
-    color: 'bg-brand-pink',
-  },
-  {
-    id: 'laravel-cert',
-    title: 'Laravel Certification',
-    issuer: 'Laravel',
-    date: '2023',
-    description:
-      'Official Laravel certification validating advanced backend development and architecture skills.',
-    link: '#',
-    color: 'bg-brand-green',
-  },
 ];
 
 export type Research = {
@@ -389,27 +390,15 @@ export type Research = {
 
 export const RESEARCH: Research[] = [
   {
-    id: 'face-recognition',
-    title: 'Real-Time Face Recognition for Automated Attendance',
-    field: 'Computer Vision',
-    dataset: 'LFW + Custom (12K images)',
-    method: 'YOLOv8 + FaceNet + SVM',
-    result: '98.3% accuracy, 45ms latency',
-    accuracy: '98.3%',
-    abstract:
-      'This research presents a real-time face recognition system for automated attendance tracking. We combine YOLOv8 for face detection, FaceNet for embedding extraction, and an SVM classifier, achieving 98.3% accuracy with 45ms inference latency.',
-    color: 'bg-brand-yellow',
-  },
-  {
     id: 'expression-recognition',
-    title: 'Macro Expression Recognition Using CNN-LSTM',
+    title: 'Comparative Performance Analysis of CNN, ResNet50, and EfficientNetB0 for Macro Facial Expression Recognition',
     field: 'Deep Learning',
-    dataset: 'CK+ Dataset (593 sequences)',
-    method: 'CNN + LSTM + MediaPipe',
-    result: '94.7% accuracy across 7 classes',
-    accuracy: '94.7%',
+    dataset: 'CK+ Dataset (20000 sequences)',
+    method: 'CNN + Resnet50 + EfficientnetB0',
+    result: '71% accuracy across 7 classes',
+    accuracy: '71%',
     abstract:
-      'A temporal deep learning approach for macro facial expression recognition. The CNN-LSTM architecture extracts spatial features per frame and models temporal dynamics, achieving 94.7% accuracy on the CK+ dataset.',
+      'This study evaluates the performance of CNN, ResNet50, and EfficientNetB0 architectures for macro facial expression recognition. Using the CK+ dataset, we analyze accuracy, inference time, and model complexity, providing insights into optimal model selection for real-time applications.',
     color: 'bg-brand-blue',
   },
   {
