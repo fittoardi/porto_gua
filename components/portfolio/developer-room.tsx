@@ -18,12 +18,12 @@ function Monitor({ position }: { position: [number, number, number] }) {
   const screenRef = useRef<THREE.Mesh>(null);
   const lines = useMemo(
     () => [
-      'def train_model():',
-      '  model.fit(X, y)',
-      '  acc = model.evaluate()',
-      '  print(f"acc={acc}")',
-      '  return model',
-    ],
+      'Teks = "hello world"',
+      'for i in range(1000):',
+      '   if i % 2 == 0:',
+      '   Teks += " hello world" ',
+      'print( Teks )',
+      ],
     []
   );
 

@@ -134,7 +134,7 @@ export default function ContactSection() {
             </div>
 
             {/* Right: form */}
-            <form
+            {/* <form
               onSubmit={handleSubmit}
               className="md:col-span-3 p-6 md:p-8 flex flex-col gap-4"
             >
@@ -191,7 +191,7 @@ export default function ContactSection() {
                   </>
                 )}
               </button>
-            </form>
+            </form> */}
           </div>
         </motion.div>
       </div>

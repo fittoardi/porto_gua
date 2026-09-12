@@ -91,7 +91,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA
             <div className="hidden lg:block">
               <MagneticButton strength={0.3}>
                 <button
@@ -101,7 +101,7 @@ export default function Navbar() {
                   Let&apos;s Talk
                 </button>
               </MagneticButton>
-            </div>
+            </div> */}
 
             {/* Mobile toggle */}
             <button

@@ -334,13 +334,13 @@ export type Certificate = {
 
 export const CERTIFICATES: Certificate[] = [
   {
-    id: 'tf-developer',
-    title: 'TensorFlow Developer Certificate',
-    issuer: 'Google',
+    id: 'Pijar Fondation ',
+    title: 'Asscoate Project Manager',
+    issuer: 'Tenang AI',
     date: '2024',
     description:
-      'Certified proficiency in building, training, and deploying TensorFlow ML models for production.',
-    link: '#',
+      'Project management certification focusing on agile methodologies, team collaboration, and stakeholder management.',
+    link: 'https://drive.google.com/file/d/1GgINYdU_nu6WDUMYOlAB5NcSYaiRqWaU/view?usp=sharing',
     color: 'bg-brand-yellow',
   },
   {

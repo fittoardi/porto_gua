@@ -130,13 +130,13 @@ export default function AboutSection() {
                   </div>
                 </div>
                 <div className="border-2 border-black rounded-xl p-3 bg-brand-pink/20">
-                  <div className="font-heading text-2xl font-bold">20+</div>
+                  <div className="font-heading text-2xl font-bold">10+</div>
                   <div className="font-body text-xs text-black/60">
                     Projects
                   </div>
                 </div>
                 <div className="border-2 border-black rounded-xl p-3 bg-brand-blue/20">
-                  <div className="font-heading text-2xl font-bold">5+</div>
+                  <div className="font-heading text-2xl font-bold">3+</div>
                   <div className="font-body text-xs text-black/60">
                     Research
                   </div>
