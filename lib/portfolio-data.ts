@@ -119,24 +119,26 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: 'cv-teknik-sentosa',
-    title: 'CV Teknik Sentosa',
+    id: 'cv-sentosa-teknik',
+    title: 'CV. Sentosa Teknik',
     category: 'Company Profile',
     image: '/projects/cv-teknik-sentosa.png',
     description:
-      'A professional company profile website for CV Teknik Sentosa Engineering.',
+      'Official company profile & industrial machinery catalog for CV. Sentosa Teknik (Food Processing & Steam Boiler Systems).',
     longDescription:
-      'A modern company profile website designed to present CV Teknik Sentosa Engineering, its services, company information, and professional identity to prospective clients.',
-    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      'A comprehensive, high-performance industrial company profile platform built for CV. Sentosa Teknik. The platform presents manufacturing machinery for cracker production lines and industrial steam boilers, featuring a structured product catalog, online quotation request system, multi-language support (ID/EN), and seamless WhatsApp business integration.',
+    techStack: ['Laravel', 'PHP', 'Tailwind CSS', 'MySQL', 'Vite', 'SEO'],
     github: 'https://github.com/fittoardi/Company-Profile-Cv-Teknik-Sentosa',
-    demo: 'https://company-profile-cv-teknik-sentosa.vercel.app/',
+    demo: 'https://mesinkerupuk.my.id/id',
     caseStudy: '#',
     gradient: 'from-brand-blue to-brand-green',
     accent: '#2563EB',
     features: [
-      'Professional company profile presentation',
-      'Responsive layout for desktop and mobile',
-      'Clear service and business information',
+      'Industrial machinery & steam boiler product catalog',
+      'Interactive quotation request (Request a Quote) system',
+      'Multi-language localization (Bahasa Indonesia & English)',
+      'Direct WhatsApp consultation integration & floating CTA',
+      'Responsive design & industrial search engine optimization (SEO)',
     ],
   },
   {
@@ -171,7 +173,7 @@ export const PROJECTS: Project[] = [
       'A comprehensive school information system built with Laravel and MySQL. It allows administrators to manage student data, academic records, and administrative tasks efficiently. The platform features a responsive design and provides a user-friendly interface for teachers, students, and parents.',
     techStack: ['php native', 'MySQL', 'Bootstrap', 'REST API'],
     github: '#',
-    demo: 'https://mithos.sch.id/ ',
+    demo: 'https://mithos.sch.id/',
     caseStudy: '#',
     gradient: 'from-brand-pink to-brand-yellow',
     accent: '#FF4D6D',

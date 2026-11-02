@@ -75,33 +75,40 @@ export default function Navbar() {
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
-              {NAV_ITEMS.map((item) => (
-                <MagneticButton
-                  key={item.label}
-                  strength={0.25}
-                  className="inline-block"
-                >
-                  <button
-                    onClick={() => handleNavClick(item.href)}
-                    className="font-body text-sm font-medium text-black/70 hover:text-black hover:bg-brand-yellow/30 rounded-lg px-3 py-2 transition-colors"
+              {NAV_ITEMS.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <MagneticButton
+                    key={item.label}
+                    strength={0.25}
+                    className="inline-block"
                   >
-                    {item.label}
-                  </button>
-                </MagneticButton>
-              ))}
+                    <button
+                      onClick={() => handleNavClick(item.href)}
+                      className={`font-body text-sm rounded-lg px-3.5 py-2 transition-all ${
+                        isActive
+                          ? 'bg-brand-yellow text-black font-bold border-2 border-black shadow-brutal-sm -translate-y-0.5'
+                          : 'font-medium text-black/70 hover:text-black hover:bg-brand-yellow/20'
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  </MagneticButton>
+                );
+              })}
             </div>
 
-            {/* CTA
+            {/* Desktop CTA */}
             <div className="hidden lg:block">
               <MagneticButton strength={0.3}>
                 <button
                   onClick={() => handleNavClick('/contact')}
-                  className="brutal-btn-primary text-sm"
+                  className="brutal-btn-primary text-sm py-2 px-4"
                 >
                   Let&apos;s Talk
                 </button>
               </MagneticButton>
-            </div> */}
+            </div>
 
             {/* Mobile toggle */}
             <button
@@ -125,15 +132,22 @@ export default function Navbar() {
             className="fixed top-20 left-4 right-4 z-40 lg:hidden"
           >
             <div className="bg-white border-2 border-black rounded-2xl shadow-brutal-lg p-4 flex flex-col gap-1">
-              {NAV_ITEMS.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => handleNavClick(item.href)}
-                  className="font-body text-base font-medium text-left px-4 py-3 rounded-lg hover:bg-brand-yellow/30 transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
+              {NAV_ITEMS.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => handleNavClick(item.href)}
+                    className={`font-body text-base text-left px-4 py-3 rounded-lg transition-colors ${
+                      isActive
+                        ? 'bg-brand-yellow font-bold text-black border-2 border-black shadow-brutal-sm'
+                        : 'font-medium hover:bg-brand-yellow/20'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
               <button
                 onClick={() => handleNavClick('/contact')}
                 className="brutal-btn-primary mt-2"

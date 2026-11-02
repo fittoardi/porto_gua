@@ -9,7 +9,7 @@ export default function CustomCursor() {
   const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
   const x = useSpring(cursorX, springConfig);
   const y = useSpring(cursorY, springConfig);
-  const [variant, setVariant] = useState<'default' | 'hover' | 'click'>(
+  const [variant, setVariant] = useState<'default' | 'hover' | 'view' | 'text' | 'click'>(
     'default'
   );
   const ripplesRef = useRef<HTMLDivElement>(null);
@@ -23,9 +23,11 @@ export default function CustomCursor() {
       cursorY.set(e.clientY);
 
       const target = e.target as HTMLElement;
-      if (
-        target.closest('a, button, [data-cursor="hover"], input, textarea')
-      ) {
+      if (target.closest('input, textarea')) {
+        setVariant('text');
+      } else if (target.closest('[data-cursor="hover"]')) {
+        setVariant('view');
+      } else if (target.closest('a, button, [role="button"]')) {
         setVariant('hover');
       } else {
         setVariant('default');
@@ -88,17 +90,22 @@ export default function CustomCursor() {
         <motion.div
           className="flex items-center justify-center rounded-full border-2 border-black"
           animate={{
-            width: variant === 'hover' ? 56 : 24,
-            height: variant === 'hover' ? 56 : 24,
+            width: variant === 'view' ? 56 : variant === 'hover' ? 36 : variant === 'text' ? 0 : 20,
+            height: variant === 'view' ? 56 : variant === 'hover' ? 36 : variant === 'text' ? 0 : 20,
+            opacity: variant === 'text' ? 0 : 1,
             backgroundColor:
-              variant === 'hover' ? '#FFD60A' : 'rgba(255, 255, 255, 0.5)',
-            scale: variant === 'click' ? 0.8 : 1,
+              variant === 'view'
+                ? '#FFD60A'
+                : variant === 'hover'
+                ? 'rgba(255, 214, 10, 0.45)'
+                : 'rgba(255, 255, 255, 0.6)',
+            scale: variant === 'click' ? 0.75 : 1,
           }}
           transition={{ type: 'spring', damping: 20, stiffness: 300 }}
           style={{ translateX: '-50%', translateY: '-50%' }}
         >
-          {variant === 'hover' && (
-            <span className="font-heading text-[10px] font-bold text-black">
+          {variant === 'view' && (
+            <span className="font-heading text-[10px] font-bold text-black tracking-wider">
               VIEW
             </span>
           )}
