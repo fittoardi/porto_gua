@@ -223,33 +223,51 @@ export default function ProjectsSection() {
 
                 {/* Links */}
                 <div className="flex flex-wrap gap-3">
-                  <a
-                    href={selected.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="brutal-btn"
-                  >
-                    <Github size={18} />
-                    GitHub
-                  </a>
-                  <a
-                    href={selected.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="brutal-btn-primary"
-                  >
-                    <ExternalLink size={18} />
-                    Live Demo
-                  </a>
-                  <a
-                    href={selected.caseStudy}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="brutal-btn-accent"
-                  >
-                    <FileText size={18} />
-                    Case Study
-                  </a>
+                  {selected.github && selected.github !== '#' ? (
+                    <a
+                      href={selected.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="brutal-btn"
+                    >
+                      <Github size={18} />
+                      GitHub Repo
+                    </a>
+                  ) : (
+                    <span className="brutal-btn opacity-50 cursor-not-allowed bg-black/5" title="Repository is private or restricted">
+                      <Github size={18} />
+                      Private Repo
+                    </span>
+                  )}
+
+                  {selected.demo && selected.demo !== '#' ? (
+                    <a
+                      href={selected.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="brutal-btn-primary"
+                    >
+                      <ExternalLink size={18} />
+                      Live Demo
+                    </a>
+                  ) : (
+                    <span className="brutal-btn opacity-50 cursor-not-allowed bg-black/5" title="Live demo is currently unavailable or offline">
+                      <ExternalLink size={18} />
+                      Demo Offline
+                    </span>
+                  )}
+
+                  {selected.caseStudy && selected.caseStudy !== '#' && (
+                    <a
+                      href={selected.caseStudy}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="brutal-btn-accent"
+                    >
+                      <FileText size={18} />
+                      Case Study
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

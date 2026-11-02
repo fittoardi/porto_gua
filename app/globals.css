@@ -174,10 +174,14 @@
   background: #FFD60A;
 }
 
-/* Hide default cursor on desktop for custom cursor */
+/* Hide default cursor on desktop for custom cursor, except text inputs */
 @media (min-width: 1024px) {
   .custom-cursor-active * {
     cursor: none !important;
+  }
+  .custom-cursor-active input,
+  .custom-cursor-active textarea {
+    cursor: text !important;
   }
 }
 

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import { MARQUEE_ITEMS, PROFILE } from '@/lib/portfolio-data';
@@ -45,20 +46,21 @@ export default function Footer() {
           {/* Quick links */}
           <div className="flex flex-wrap gap-3 justify-center">
             {[
+              { label: 'Home', href: '/' },
               { label: 'About', href: '/about' },
               { label: 'Skills', href: '/skills' },
               { label: 'Projects', href: '/projects' },
               { label: 'Timeline', href: '/timeline' },
               { label: 'Contact', href: '/contact' },
             ].map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="font-body text-sm text-white/70 hover:text-brand-yellow transition-colors border-b-2 border-transparent hover:border-brand-yellow"
-                >
-                  {label}
-                </a>
-              ))}
+              <Link
+                key={label}
+                href={href}
+                className="font-body text-sm text-white/70 hover:text-brand-yellow transition-colors border-b-2 border-transparent hover:border-brand-yellow"
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
           {/* Back to top */}

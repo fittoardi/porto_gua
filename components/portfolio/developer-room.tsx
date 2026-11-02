@@ -1,8 +1,8 @@
 'use client';
 
-import { useRef, useMemo, useState } from 'react';
+import { useRef, useMemo, useState, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, RoundedBox, Text, ContactShadows } from '@react-three/drei';
+import { OrbitControls, Float, RoundedBox, Text } from '@react-three/drei';
 import * as THREE from 'three';
 
 // -------------------------------------------------------------
@@ -12,7 +12,7 @@ function Desk() {
   return (
     <group position={[0, -0.6, 0]}>
       {/* Matte Dark Walnut Tabletop with Beveled Edges */}
-      <RoundedBox args={[5.2, 0.12, 2.6]} radius={0.04} smoothness={4} receiveShadow castShadow>
+      <RoundedBox args={[5.0, 0.12, 2.6]} radius={0.04} smoothness={4} receiveShadow castShadow>
         <meshStandardMaterial color="#1e1e24" roughness={0.4} metalness={0.1} />
       </RoundedBox>
 
@@ -28,41 +28,41 @@ function Desk() {
       </mesh>
 
       {/* Left Steel Leg Frame */}
-      <group position={[-2.3, -0.7, 0]}>
-        <mesh position={[0, 0, 0.9]} castShadow>
-          <boxGeometry args={[0.08, 1.3, 0.08]} />
+      <group position={[-2.2, -0.65, 0]}>
+        <mesh position={[0, 0, 0.8]} castShadow>
+          <boxGeometry args={[0.08, 1.2, 0.08]} />
           <meshStandardMaterial color="#09090b" metalness={0.8} roughness={0.3} />
         </mesh>
-        <mesh position={[0, 0, -0.9]} castShadow>
-          <boxGeometry args={[0.08, 1.3, 0.08]} />
+        <mesh position={[0, 0, -0.8]} castShadow>
+          <boxGeometry args={[0.08, 1.2, 0.08]} />
           <meshStandardMaterial color="#09090b" metalness={0.8} roughness={0.3} />
         </mesh>
-        <mesh position={[0, -0.62, 0]}>
-          <boxGeometry args={[0.08, 0.06, 1.88]} />
+        <mesh position={[0, -0.58, 0]}>
+          <boxGeometry args={[0.08, 0.06, 1.68]} />
           <meshStandardMaterial color="#09090b" metalness={0.8} roughness={0.3} />
         </mesh>
         <mesh position={[0, 0.58, 0]}>
-          <boxGeometry args={[0.08, 0.06, 1.88]} />
+          <boxGeometry args={[0.08, 0.06, 1.68]} />
           <meshStandardMaterial color="#09090b" metalness={0.8} roughness={0.3} />
         </mesh>
       </group>
 
       {/* Right Steel Leg Frame */}
-      <group position={[2.3, -0.7, 0]}>
-        <mesh position={[0, 0, 0.9]} castShadow>
-          <boxGeometry args={[0.08, 1.3, 0.08]} />
+      <group position={[2.2, -0.65, 0]}>
+        <mesh position={[0, 0, 0.8]} castShadow>
+          <boxGeometry args={[0.08, 1.2, 0.08]} />
           <meshStandardMaterial color="#09090b" metalness={0.8} roughness={0.3} />
         </mesh>
-        <mesh position={[0, 0, -0.9]} castShadow>
-          <boxGeometry args={[0.08, 1.3, 0.08]} />
+        <mesh position={[0, 0, -0.8]} castShadow>
+          <boxGeometry args={[0.08, 1.2, 0.08]} />
           <meshStandardMaterial color="#09090b" metalness={0.8} roughness={0.3} />
         </mesh>
-        <mesh position={[0, -0.62, 0]}>
-          <boxGeometry args={[0.08, 0.06, 1.88]} />
+        <mesh position={[0, -0.58, 0]}>
+          <boxGeometry args={[0.08, 0.06, 1.68]} />
           <meshStandardMaterial color="#09090b" metalness={0.8} roughness={0.3} />
         </mesh>
         <mesh position={[0, 0.58, 0]}>
-          <boxGeometry args={[0.08, 0.06, 1.88]} />
+          <boxGeometry args={[0.08, 0.06, 1.68]} />
           <meshStandardMaterial color="#09090b" metalness={0.8} roughness={0.3} />
         </mesh>
       </group>
@@ -185,14 +185,13 @@ function MainMonitor({ position }: { position: [number, number, number] }) {
         <meshBasicMaterial color="#10B981" />
       </mesh>
 
-      {/* Window Title text */}
+      {/* Window Title text (Using default built-in font for zero external network dependency) */}
       <Text
         position={[-0.96, 0.58, 0.07]}
         fontSize={0.06}
         color="#94A3B8"
         anchorX="left"
         anchorY="middle"
-        font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
       >
         {currentMode.title}
       </Text>
@@ -619,10 +618,10 @@ function Scene() {
   return (
     <>
       {/* Balanced Studio & Ambient Illumination */}
-      <ambientLight intensity={0.55} />
+      <ambientLight intensity={0.65} />
       <directionalLight
         position={[6, 9, 5]}
-        intensity={0.9}
+        intensity={0.95}
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
@@ -655,15 +654,11 @@ function Scene() {
       <FloatingBadge position={[-2.2, 0.6, 1]} label="Python" accent="#FFD60A" bg="#172554" />
       <FloatingBadge position={[1.6, 2.3, 0]} label="Docker" accent="#2496ED" bg="#082f49" />
 
-      {/* Soft Floor Shadow for Realism */}
-      <ContactShadows
-        position={[0, -1.9, 0]}
-        opacity={0.65}
-        scale={10}
-        blur={2.4}
-        far={4.5}
-        color="#000000"
-      />
+      {/* Floor Shadow Receiver Plane (Zero external shaders, 100% reliable) */}
+      <mesh position={[0, -1.25, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[12, 12]} />
+        <shadowMaterial opacity={0.25} />
+      </mesh>
 
       {/* Smooth Orbit Camera Controls */}
       <OrbitControls
@@ -687,9 +682,11 @@ export default function DeveloperRoom() {
         shadows
         camera={{ position: [0, 1.3, 4.8], fov: 44 }}
         dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
-        <Scene />
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
       </Canvas>
     </div>
   );
