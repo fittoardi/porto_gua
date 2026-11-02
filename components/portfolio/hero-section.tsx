@@ -176,10 +176,22 @@ export default function HeroSection() {
               >
                 <DeveloperRoom />
               </Suspense>
-              {/* Label */}
-              <div className="absolute bottom-4 left-4 border-2 border-black bg-white rounded-full px-4 py-1.5 shadow-brutal-sm">
-                <span className="font-heading text-xs font-bold">
-                  3D Developer Workspace
+              {/* Interactive Badges & Hints */}
+              <div className="absolute bottom-4 left-4 pointer-events-none">
+                <div className="border-2 border-black bg-white rounded-full px-3.5 py-1.5 shadow-brutal-sm flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green" />
+                  </span>
+                  <span className="font-heading text-xs font-bold">
+                    3D AI Workspace
+                  </span>
+                </div>
+              </div>
+
+              <div className="absolute bottom-4 right-4 hidden sm:flex items-center gap-1.5 border-2 border-black bg-brand-yellow rounded-full px-3 py-1 shadow-brutal-sm pointer-events-none">
+                <span className="font-heading text-[11px] font-bold text-black">
+                  ✦ Drag to Orbit &bull; Click Monitor to Switch
                 </span>
               </div>
             </div>
